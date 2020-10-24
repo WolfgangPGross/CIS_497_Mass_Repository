@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/MyFirstPersonController/Scenes/MyFirstPersonPlayer.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
