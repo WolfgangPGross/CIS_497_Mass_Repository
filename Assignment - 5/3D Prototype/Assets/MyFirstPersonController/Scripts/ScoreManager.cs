@@ -13,44 +13,44 @@ using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     public static bool OURgameOver;
-    public static bool won;
-    public static int score;
+    public static bool won;//*
+    public static int score;//*
     public static bool gameOver;
 
     private PlayerMovement playerController;
 
-    public Text textbox;
+    public Text textbox;//*
 
     // Start is called before the first frame update
     void Start()
     {
-        playerController = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        playerController = GameObject.Find("Player").GetComponent<PlayerMovement>();//*
         gameOver = false;
         OURgameOver = false;
-        won = false;
-        score = 0;
+        won = false; //*
+        score = 0;//*
     }
 
     // Update is called once per frame
     void Update()
     {
         gameOver = playerController.gameOver;
-        score = playerController.score;
+        score = playerController.score;//*
 
-        if (!playerController.gameOver)
+        if (!playerController.gameOver)//*
         {
 
             score = playerController.score;
             textbox.text = "Score: " + score;
         }
-        if (score >= 10)
+        if (score >= 10)//*
         {
             won = true;
             //gameOver = true; //settrue only if in endzone with score >= 10
         }
-        if (playerController.inEndZone == true)
+        if (playerController.inEndZone == true)//* transition to new level if check
         {
-            if (won && playerController.score >= 60)
+            if (won && playerController.score >= 60)//*
             {
                 textbox.text = "You're poor mouse! You win? " +
                     "Press R to play again!";
@@ -71,7 +71,7 @@ public class ScoreManager : MonoBehaviour
                     "You didn't break 10 objects, " +
                     "Press R to try again!";
             }
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R))//*When pressed, restart score (reset)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
